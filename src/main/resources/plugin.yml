@@ -1,6 +1,6 @@
 name: Realtime_minecraft
 version: '1.0-SNAPSHOT'
-main: always.io.kr.realtime_minecraft.Realtime_minecraft
+main: always.io.kr.realtime_minecraft.RealTimeSync
 api-version: '1.21'
 authors: [ Sie ]
 description: Realtime sync on minecraft server.
