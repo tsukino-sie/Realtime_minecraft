@@ -1,9 +1,11 @@
 package always.io.kr.realtime_minecraft;
 
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.NamedTextColor;
+import net.kyori.adventure.text.format.TextDecoration;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
-import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
@@ -11,6 +13,14 @@ import java.time.LocalTime;
 import java.util.Objects;
 
 public final class RealTimeSync extends JavaPlugin {
+
+    // 1. Prefix 상수 정의 (어디서든 RealTimeSync.PREFIX 로 접근 가능)
+    // [RealTime] 형태로, 색상을 입혀서 예쁘게 만듭니다.
+    public static final Component PREFIX = Component.empty()
+            .append(Component.text("[", NamedTextColor.GRAY))
+            .append(Component.text("RealTime", NamedTextColor.AQUA, TextDecoration.BOLD))
+            .append(Component.text("] ", NamedTextColor.GRAY));
+
 
     private BukkitTask syncTask; // 실행 중인 작업 핸들 (JS의 timer ID 같은 것)
 
