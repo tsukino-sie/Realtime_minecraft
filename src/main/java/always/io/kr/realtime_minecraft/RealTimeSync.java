@@ -18,7 +18,7 @@ public final class RealTimeSync extends JavaPlugin {
     // [RealTime] 형태로, 색상을 입혀서 예쁘게 만듭니다.
     public static final Component PREFIX = Component.empty()
             .append(Component.text("[", NamedTextColor.GRAY))
-            .append(Component.text("RealTime", NamedTextColor.AQUA, TextDecoration.BOLD))
+            .append(Component.text("RealTime", NamedTextColor.AQUA))
             .append(Component.text("] ", NamedTextColor.GRAY));
 
 
@@ -28,12 +28,13 @@ public final class RealTimeSync extends JavaPlugin {
     public void onEnable() {
         // 명령어 등록 (plugin.yml의 이름과 일치해야 함)
         Objects.requireNonNull(getCommand("realtime")).setExecutor(new RealTimeCommand(this));
-        getLogger().info("플러그인 로드 완료! /realtime start 로 시작하세요.");
+        getLogger().info(String.valueOf(PREFIX.append(Component.text("Activated successfully!"))));
     }
 
     @Override
     public void onDisable() {
         stopSyncTask(); // 서버 꺼지면 안전하게 종료
+        getLogger().info(String.valueOf(PREFIX.append(Component.text("Goodbye!"))));
     }
 
     // 작업이 실행 중인지 확인 (Getter)
